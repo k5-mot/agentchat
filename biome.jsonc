@@ -1,0 +1,334 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
+    // ==============
+    // root設定
+    // ==============
+    "root": true,
+    // ==============
+    // ファイル設定
+    // ==============
+    "files": {
+        "includes": [
+            "**/*.js", // JavaScript
+            "**/*.jsx", // React JSX
+            "**/*.ts", // TypeScript
+            "**/*.tsx", // React TSX
+            "**/*.vue", // Vue
+            "**/*.html", // HTML
+            "**/*.css", // CSS
+            "**/*.scss", // SCSS
+            "**/*.sass", // SASS
+            "**/*.pcss", // PostCSS
+            "**/*.json", // JSON
+            "**/*.jsonc", // JSON with Comments
+            "**/*.graphql", // GraphQL
+            "**/*.gql", // GraphQL
+            "**/*.graphqls", // GraphQL Schema
+            "!**/node_modules/",
+            "!**/test/",
+            "!**/vitest.config.ts"
+        ]
+    },
+    // ==============
+    // Git統合設定
+    // ==============
+    "vcs": {
+        "enabled": true, // VCS統合を有効化
+        "clientKind": "git", // Gitを使用
+        "useIgnoreFile": true, // .gitignoreファイルを尊重
+        "defaultBranch": "main" // デフォルトブランチ名
+    },
+    // ==============
+    // IDE支援機能の設定
+    // ==============
+    "assist": {
+        "enabled": true,
+        "actions": {
+            "source": {
+                "organizeImports": "on" // インポートの自動整理を有効
+            }
+        }
+    },
+    // ==============
+    // リンター設定
+    // ==============
+    "linter": {
+        "enabled": true, // リンターを有効化
+        "rules": {
+            "recommended": true, // 推奨ルールを有効化
+            "a11y": {
+                // Accessibility関連のルール
+                "recommended": true // 推奨ルールを有効化
+            },
+            "complexity": {
+                // 複雑性関連のルール
+                "recommended": true
+            },
+            "correctness": {
+                // 正しさ関連のルール
+                "recommended": true
+            },
+            "nursery": {
+                // 実験的ルール
+                "recommended": true
+            },
+            "performance": {
+                // 性能のルール
+                "recommended": true
+            },
+            "security": {
+                // セキュリティのルール
+                "recommended": true
+            },
+            "style": {
+                // スタイル関連のルール
+                "recommended": true // 推奨ルールを有効化
+            },
+            "suspicious": {
+                // 疑わしいコード関連のルール
+                "recommended": true, // 推奨ルールを有効化
+                "noUnknownAtRules": {
+                    "level": "error",
+                    "options": {
+                        "ignore": [
+                            "theme",
+                            "plugin"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    // フォーマッター設定
+    "formatter": {
+        "enabled": true, // フォーマッターを有効化.
+        "formatWithErrors": true, // リントエラーをフォーマット.
+        "indentStyle": "space", // インデント文字.
+        "indentWidth": 2, // インデントサイズ.
+        "lineEnding": "lf", // 改行コード.
+        "lineWidth": 80, // 行の最大文字数.
+        "attributePosition": "auto", // HTML属性を自動改行.
+        "bracketSpacing": true, // 括弧内と内部の値の間にSPACEを追加.
+        "expand": "auto", // 配列/オブジェクトの自動展開.
+        "useEditorconfig": false // .editorconfig読み込み.
+    },
+    // JavaScript向けの設定
+    "javascript": {
+        "parser": {
+            "unsafeParameterDecoratorsEnabled": false, // パラメータデコレータを無効化
+            "jsxEverywhere": true // JSXをあらゆる場所で許可
+        },
+        "formatter": {
+            "enabled": true, // JavaScriptフォーマッターを有効化
+            "quoteStyle": "double", // ダブルクォートを使用
+            "jsxQuoteStyle": "double", // JSXでダブルクォートを使用
+            "quoteProperties": "asNeeded", // 必要な場合のみプロパティをクォート
+            "trailingCommas": "all", // 末尾カンマを常に付ける
+            "semicolons": "always", // セミコロンを常に付ける
+            "arrowParentheses": "always", // アロー関数の引数を常に括弧で囲む
+            "operatorLinebreak": "after" // 演算子の改行位置を演算子の後に
+        },
+        "globals": [
+            "process", // Node.js process オブジェクト
+            "Buffer", // Node.js Buffer オブジェクト
+            "__dirname", // Node.js __dirname 変数
+            "__filename" // Node.js __filename 変数
+        ],
+        "jsxRuntime": "reactClassic", // Reactの新しいJSX変換を使用(React 17+)
+        "linter": {
+            "enabled": true // JavaScriptリンターを有効化
+        },
+        "assist": {
+            "enabled": true // JavaScriptコードアシストを有効化
+        }
+    },
+    // ==============
+    // JSON設定
+    // ==============
+    "json": {
+        "parser": {
+            "allowComments": true, // JSONCコメントを許可
+            "allowTrailingCommas": false // 末尾カンマを許可
+        },
+        "formatter": {
+            "enabled": true, // JSONフォーマッターを有効化
+            "indentWidth": 4, // インデント幅: 2スペース
+            "trailingCommas": "none" // 末尾カンマ
+        },
+        "linter": {
+            "enabled": true
+        },
+        "assist": {
+            "enabled": true
+        }
+    },
+    // ==============
+    // CSS設定
+    // ==============
+    "css": {
+        "parser": {
+            "cssModules": false, // CSS Modulesを無効化
+            "tailwindDirectives": true,
+            "allowWrongLineComments": false // 誤った行コメントを許可しない
+        },
+        "formatter": {
+            "enabled": true // CSSフォーマッターを有効化
+        },
+        "linter": {
+            "enabled": true // CSSリンターを有効化
+        },
+        "assist": {
+            "enabled": false
+        }
+    },
+    // ==============
+    // GraphQL設定
+    // ==============
+    "graphql": {
+        "formatter": {
+            "enabled": true // フォーマッターを有効化
+        },
+        "linter": {
+            "enabled": true // CSSリンターを有効化
+        },
+        "assist": {
+            "enabled": true
+        }
+    },
+    // ==============
+    // Grit設定
+    // ==============
+    "grit": {
+        "formatter": {
+            "enabled": true // フォーマッターを有効化
+        },
+        "linter": {
+            "enabled": true // CSSリンターを有効化
+        },
+        "assist": {
+            "enabled": true
+        }
+    },
+    // ==============
+    // HTML設定 (Experimental)
+    // ==============
+    "html": {
+        "parser": {
+            "interpolation": true // HTMLの補間
+        },
+        "formatter": {
+            "enabled": true, // フォーマッターを有効化
+            "attributePosition": "auto", // HTML属性を自動改行
+            "bracketSameLine": false, // HTMLの開始タグを同じ行に配置しない
+            "whitespaceSensitivity": "ignore", // HTMLの空白感度を無視
+            "indentScriptAndStyle": true, // <script>と<style>内をインデント
+            "selfCloseVoidElements": "never" // 空要素を自己終了タグに
+        }
+    },
+    // ==============
+    // ライブラリ・フレームワークの設定
+    // ==============
+    "overrides": [
+        // ==============
+        // Typescriptの設定
+        // ==============
+        {
+            "includes": [
+                "**/*.ts",
+                "**/*.tsx"
+            ],
+            "linter": {
+                "rules": {
+                    "correctness": {
+                        // TypeScript環境ではJavaScriptのビルトインチェックを無効化(TypeScript自体がチェック)
+                        "noConstAssign": "off", // constの再代入チェックを無効
+                        "noGlobalObjectCalls": "off", // グローバルオブジェクト呼び出しチェックを無効
+                        "noInvalidBuiltinInstantiation": "off", // 無効なビルトインインスタンス化チェックを無効
+                        "noInvalidConstructorSuper": "off", // 無効なsuperコンストラクタチェックを無効
+                        "noSetterReturn": "off", // setterの返り値チェックを無効
+                        "noUndeclaredVariables": "off", // 未宣言変数チェックを無効
+                        "noUnreachable": "off", // 到達不可能コードチェックを無効
+                        "noUnreachableSuper": "off" // 到達不可能superチェックを無効
+                    },
+                    "style": {
+                        "noEnum": "error", // TypeScriptのenumの使用を禁止する（ユニオン型やconstオブジェクトを推奨）
+                        "noNamespace": "error", // namespace記法を禁止
+                        "useConsistentArrayType": {
+                            "level": "error",
+                            "options": {
+                                "syntax": "shorthand" // T[] 記法を強制
+                            }
+                        },
+                        "useFilenamingConvention": "error" // ファイル名の命名規則を強制する（プロジェクト規約に従う）
+                    },
+                    "suspicious": {
+                        // TypeScript環境ではJavaScriptのチェックを無効化(TypeScript自体がチェック)
+                        "noClassAssign": "off", // クラスの再代入チェックを無効
+                        "noDuplicateClassMembers": "off", // 重複クラスメンバーチェックを無効
+                        "noDuplicateObjectKeys": "off", // 重複オブジェクトキーチェックを無効
+                        "noDuplicateParameters": "off", // 重複パラメータチェックを無効
+                        "noFunctionAssign": "off", // 関数の再代入チェックを無効
+                        "noImportAssign": "off", // インポートの再代入チェックを無効
+                        "noRedeclare": "off", // 再宣言チェックを無効
+                        "noUnsafeNegation": "off", // 安全でない否定チェックを無効
+                        "noVar": "error", // var宣言を禁止(ES6+ const/let推奨)
+                        "noWith": "off", // with文チェックを無効
+                        "useGetterReturn": "off" // getterの返り値チェックを無効
+                    }
+                }
+            }
+        },
+        // ==============
+        // Reactの設定
+        // ==============
+        {
+            "includes": [
+                "**/*.jsx",
+                "**/*.tsx"
+            ],
+            "linter": {
+                "rules": {
+                    "correctness": {
+                        "noReactPropAssignments": "error", // React propsの再代入を禁止
+                        "noRenderReturnValue": "error", // Reactのrenderメソッドの戻り値の誤用を禁止
+                        "useExhaustiveDependencies": "error", // React Hook依存関係の網羅性チェック
+                        "useHookAtTopLevel": "error", // Hookはトップレベルでのみ
+                        "useJsxKeyInIterable": "error" // イテレータ内のJSX要素にkey属性を強制
+                    },
+                    "nursery": {
+                        "recommended": true // 推奨ルールを有効化
+                    },
+                    "security": {
+                        "recommended": true // 推奨ルールを有効化
+                    },
+                    "style": {
+                        "recommended": true // 推奨ルールを有効化
+                    },
+                    "suspicious": {
+                        "recommended": true // 推奨ルールを有効化
+                    }
+                }
+            }
+        },
+        // ==============
+        // Vueの設定
+        // ==============
+        {
+            "includes": [
+                "**/*.vue"
+            ],
+            "linter": {
+                "rules": {
+                    "nursery": {
+                        // 実験的ルール
+                        "recommended": true, // 推奨ルールを有効化
+                        "noVueDataObjectDeclaration": "error", // Vueのdataオブジェクト宣言を禁止
+                        // "noVueDuplicateKeys": "error", // Vueの重複キーを禁止 (Biome 2.3.6で削除)
+                        "noVueReservedKeys": "error", // Vueの予約キーの使用を禁止
+                        "noVueReservedProps": "error" // Vueの予約propsの使用を禁止
+                    }
+                }
+            }
+        }
+    ]
+}
