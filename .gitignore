@@ -1,0 +1,4 @@
+.claude/settings.local.json
+.pnpm-store/
+.serena/cache
+agent/.venv
