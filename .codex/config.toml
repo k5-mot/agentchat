@@ -1,0 +1,89 @@
+[mcp_servers.sequential-thinking]
+type = "stdio"
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+
+# [mcp_servers.github]
+# type = "stdio"
+# command = "npx"
+# args = ["-y", "@modelcontextprotocol/server-github"]
+
+# [mcp_servers.gitlab]
+# type = "stdio"
+# command = "npx"
+# args = ["-y", "@zereight/mcp-gitlab"]
+
+# [mcp_servers.gitlab.env]
+# GITLAB_PERSONAL_ACCESS_TOKEN = "your_gitlab_token"
+# GITLAB_API_URL = "your_gitlab_api_url"
+# GITLAB_READ_ONLY_MODE = "false"
+
+[mcp_servers.serena]
+type = "stdio"
+command = "uvx"
+args = [
+    "--no-env-file",
+    "--from",
+    "git+https://github.com/oraios/serena",
+    "serena",
+    "start-mcp-server",
+    "--context",
+    "codex",
+]
+
+[mcp_servers.serena.env]
+BROWSER = "none"
+
+[mcp_servers.gitingest]
+type = "stdio"
+command = "uvx"
+args = [
+    "--no-env-file",
+    "git+https://github.com/puravparab/gitingest-mcp",
+    "gitingest-mcp",
+]
+
+[mcp_servers.deepwiki]
+type = "stdio"
+command = "npx"
+args = ["mcp-remote", "https://mcp.deepwiki.com/sse"]
+
+[mcp_servers.context7]
+type = "http"
+url = "https://mcp.context7.com/mcp"
+
+[mcp_servers.aws-docs]
+type = "stdio"
+command = "uvx"
+args = ["--no-env-file", "awslabs.aws-documentation-mcp-server@latest"]
+
+[mcp_servers.aws-docs.env]
+FASTMCP_LOG_LEVEL = "ERROR"
+
+[mcp_servers.microsoft-docs]
+type = "http"
+url = "https://learn.microsoft.com/api/mcp"
+
+[mcp_servers.cloudflare-docs]
+type = "stdio"
+command = "npx"
+args = ["mcp-remote", "https://docs.mcp.cloudflare.com/sse"]
+
+[mcp_servers.mcpdoc]
+type = "stdio"
+command = "uvx"
+args = [
+    "--no-env-file",
+    "--from",
+    "mcpdoc",
+    "mcpdoc",
+    "--urls",
+    "langgraph:https://langchain-ai.github.io/langgraph/llms.txt",
+    "langchain:https://python.langchain.com/llms.txt",
+    "mui:https://mui.com/material-ui/llms.txt",
+    "pandacss:https://panda-css.com/llms.txt",
+    "daisyui:https://daisyui.com/llms.txt",
+    "serendie:https://serendie.design/llms.txt",
+    "--transport",
+    "stdio",
+]

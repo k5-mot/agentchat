@@ -44,7 +44,7 @@
     // Use 'postCreateCommand' to run commands after the container is created.
     "initializeCommand": "uname -a",
     "postCreateCommand": "sudo chown -R vscode:vscode /usr/local/share/nvm/* && npm install -g yarn pnpm git-cz @biomejs/biome@2.3.11 aws-cdk @anthropic-ai/claude-code @openai/codex",
-    "postStartCommand": "uname -a",
+    "postStartCommand": "sudo chown -R vscode:vscode .serena/cache && uvx --from git+https://github.com/oraios/serena serena start-mcp-server --context codex",
     // Set environment variables for the container.
     "containerEnv": {
         "NEXT_TELEMETRY_DISABLED": "1"
